@@ -31,27 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.toggle('light-mode');
     });
 
-    // プロジェクトセクションのフェードインアニメーション
-    const projectsGrid = document.querySelector(".projects-grid");
-    let projectsVisible = false; // フラグを追加
-    if (projectsGrid) {
-        window.addEventListener("scroll", function () {
-            if (projectsVisible) return; // すでに表示されていたら処理しない
-            const sectionPos = projectsGrid.getBoundingClientRect().top;
-            const screenPos = window.innerHeight / 1.5;
-            if (sectionPos < screenPos) {
-                projectsGrid.style.opacity = "1";
-                projectsGrid.style.transform = "translateY(0)";
-                projectsVisible = true;
-                projectsGrid.style.transform = "translateY(0)";
-            }
-        });
-        projectsGrid.style.opacity = "0";
-        projectsGrid.style.transform = "translateY(50px)";
-        projectsGrid.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
-    }
-
-
     // タイトルのグリッチエフェクト
     const title = document.querySelector('header h1');
     if (title) {
