@@ -27,14 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
     themeToggle.style.cursor = "pointer";
     document.body.appendChild(themeToggle);
     
-    let darkMode = true;
     themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode'); if(document.body.classList.contains('light-mode')) { document.body.style.backgroundColor = '#ffffff'; document.body.style.color = '#000000'; } else { document.body.style.backgroundColor = '#0d1117'; document.body.style.color = '#c9d1d9'; }
-        darkMode = !darkMode;
+        document.body.classList.toggle('light-mode');
     });
 
     // プロジェクトセクションのフェードインアニメーション
-    const projectsGrid = document.querySelector(".projects-grid") || document.createElement("div")
+    const projectsGrid = document.querySelector(".projects-grid");
     if (projectsGrid) {
         window.addEventListener("scroll", function () {
             const sectionPos = projectsGrid.getBoundingClientRect().top;
@@ -52,7 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // タイトルのグリッチエフェクト
     const title = document.querySelector('header h1');
     if (title) {
-        setInterval(() => { if (Math.random() > 0.98) { title.style.textShadow = '2px 2px 0 #0099cc, -2px -2px 0 #0099cc'; setTimeout(() => { title.style.textShadow = '3px 3px 0 #0099cc, 6px 6px 0 rgba(0,0,0,0.3)'; }, 200); } }, 1500);
+        setInterval(() => {
+            if (Math.random() > 0.98) {
+                title.style.textShadow = '2px 2px 0 #0099cc, -2px -2px 0 #0099cc';
+                setTimeout(() => {
+                    title.style.textShadow = '3px 3px 0 #0099cc, 6px 6px 0 rgba(0,0,0,0.3)';
+                }, 200);
+            }
+        }, 1500);
     }
 
     // プロジェクトカードのホバーエフェクト
