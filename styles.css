@@ -1,4 +1,4 @@
-/* Development Page のスタイル */
+/* スタイリッシュでAIっぽいデザインのCSS */
 @font-face {
     font-family: 'PixelMplus';
     src: url('fonts/PixelMplus12-Regular.ttf') format('truetype');
@@ -7,32 +7,38 @@
 
 body {
     font-family: 'PixelMplus', sans-serif;
-    background-color: #0a0a0a;
-    color: #e0e0e0;
+    background-color: #0d1117;
+    color: #c9d1d9;
     margin: 0;
     padding: 0;
     text-align: center;
-    background-image: 
-        radial-gradient(#151515 2px, transparent 3px),
-        radial-gradient(#151515 2px, transparent 3px);
-    background-size: 30px 30px;
-    background-position: 0 0, 15px 15px;
+    background-image: radial-gradient(circle, #141a24 0%, #0d1117 100%);
 }
 
 /* ヘッダー */
 header {
-    background: linear-gradient(to right, #0c0c0c, #050505, #0c0c0c);
+    background: linear-gradient(to right, #141a24, #1b2635, #141a24);
     color: #fff;
     padding: 3rem 0 2rem;
-    border-bottom: 3px solid #00cc00;
-    text-shadow: 3px 3px 0 #0099cc;
+    border-bottom: 3px solid #00ffcc;
+    box-shadow: 0px 4px 10px rgba(0, 255, 204, 0.2);
+    text-transform: uppercase;
+}
+
+header h1 {
+    font-size: 3rem;
+    text-shadow: 0 0 15px #00ffcc;
+    letter-spacing: 2px;
 }
 
 /* ナビゲーション */
 nav {
-    background-color: #181818;
+    background: #1b2635;
     padding: 0.6rem 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 255, 204, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 nav ul {
@@ -40,27 +46,22 @@ nav ul {
     display: flex;
     justify-content: center;
     padding: 0;
-}
-
-nav ul li {
-    margin: 0 1rem;
+    gap: 20px;
 }
 
 nav a {
-    color: #e0e0e0;
+    color: #c9d1d9;
     text-decoration: none;
-    font-size: 1rem;
-    padding: 0.4rem 1rem;
-    display: block;
-    background-color: #181818;
-    border: 2px solid #00cc00;
-    transition: all 0.25s;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
 }
 
 nav a:hover {
-    background-color: #0a0a0a;
-    color: #00cc00;
-    transform: translateY(-3px);
+    background: #00ffcc;
+    color: #0d1117;
+    box-shadow: 0 0 10px #00ffcc;
 }
 
 /* プロジェクトカード */
@@ -72,24 +73,52 @@ nav a:hover {
 }
 
 .project-card {
-    background-color: #1d1d1d;
-    border: 2px solid #2a2a2a;
-    padding: 1rem;
-    transition: all 0.3s;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    background: linear-gradient(to bottom, #1b2635, #141a24);
+    border: 1px solid #00ffcc;
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 255, 204, 0.15);
+    text-align: left;
 }
 
 .project-card:hover {
-    border-color: #0099cc;
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 153, 204, 0.3);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 255, 204, 0.3);
+}
+
+.project-title {
+    font-size: 1.4rem;
+    color: #00ffcc;
+}
+
+.project-description {
+    font-size: 1rem;
+    color: #c9d1d9;
+    margin: 10px 0;
+}
+
+.project-footer a {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #00ffcc;
+    color: #0d1117;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.project-footer a:hover {
+    background: #0099aa;
+    box-shadow: 0 0 10px #00ffcc;
 }
 
 /* フッター */
 footer {
-    background-color: #000;
-    color: #00ff00;
+    background: #1b2635;
+    color: #00ffcc;
     padding: 2rem 0;
     margin-top: 2rem;
-    border-top: 3px solid #00ff00;
+    border-top: 3px solid #00ffcc;
+    box-shadow: 0px -4px 10px rgba(0, 255, 204, 0.2);
 }
