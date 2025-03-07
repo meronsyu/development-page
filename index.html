@@ -12,13 +12,12 @@
     
     <header>
         <h1>Development Page</h1>
-        <p>Programming</p>
+        <p>制作物を載せています</p>
     </header>
     
     <nav>
         <ul>
             <li><a href="index.html">ホーム</a></li>
-            <li><a href="blog.html">ブログ</a></li>
             <li><a href="projects.html">プロジェクト</a></li>
             <li><a href="portfolio.html">ポートフォリオ</a></li>
             <li><a href="tech-notes.html">技術メモ</a></li>
@@ -29,10 +28,9 @@
     <main>
         <section class="content-section">
             <h2>GitHubプロジェクト</h2>
-            <p>これらは私が取り組んでいるオープンソースプロジェクトです。興味のあるプロジェクトがあれば、GitHubリポジトリを訪問して詳細をご確認ください。</p>
+            <p>これらは私が取り組んでいるプロジェクトです。興味のあるプロジェクトがあれば、GitHubリポジトリを訪問して詳細をご確認ください。</p>
             
             <div class="projects-grid">
-                <!-- プロジェクトカードの例 -->
                 <div class="project-card">
                     <div class="project-header">
                         <span class="icon-repo"></span>
@@ -44,11 +42,10 @@
                         <div class="project-meta">
                             <div class="project-language">
                                 <span class="language-dot cpp"></span>
-                                C++
+                                Python
                             </div>
                             <div class="project-stars">
                                 <span class="icon-star"></span>
-                                10
                             </div>
                         </div>
                     </div>
@@ -69,11 +66,10 @@
                         <div class="project-meta">
                             <div class="project-language">
                                 <span class="language-dot cpp"></span>
-                                C++
+                                Python
                             </div>
                             <div class="project-stars">
                                 <span class="icon-star"></span>
-                                10
                             </div>
                         </div>
                     </div>
@@ -88,21 +84,8 @@
     </main>
     
     <footer>
-        <p class="glow-text">&copy; 2025 My Digital Space. All Rights Reserved.</p>
+        <p class="glow-text">&copy; 2025 Development Page. All Rights Reserved.</p>
         <button class="retro-btn" onclick="location.href='contact.html'">CONTACT ME</button>
     </footer>   
-    
-    <script>
-        // タイトルのグリッチエフェクト
-        const title = document.querySelector('header h1');
-        setInterval(() => {
-            if (Math.random() > 0.98) {
-                title.style.textShadow = '2px 2px 0 #0099cc, -2px -2px 0 #0099cc';
-                setTimeout(() => {
-                    title.style.textShadow = '3px 3px 0 #0099cc, 6px 6px 0 rgba(0,0,0,0.3)';
-                }, 120);
-            }
-        }, 800);
-    </script>
 </body>
 </html>
