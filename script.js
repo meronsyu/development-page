@@ -41,15 +41,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // プロジェクトセクションのフェードインアニメーション
     const projectSection = document.getElementById("projects");
-    window.addEventListener("scroll", function () {
-        const sectionPos = projectSection.getBoundingClientRect().top;
-        const screenPos = window.innerHeight / 1.5;
-        if (sectionPos < screenPos) {
-            projectSection.style.opacity = "1";
-            projectSection.style.transform = "translateY(0)";
+    if (projectSection) {
+        window.addEventListener("scroll", function () {
+            const sectionPos = projectSection.getBoundingClientRect().top;
+            const screenPos = window.innerHeight / 1.5;
+            if (sectionPos < screenPos) {
+                projectSection.style.opacity = "1";
+                projectSection.style.transform = "translateY(0)";
+            }
+        });
+        projectSection.style.opacity = "0";
+        projectSection.style.transform = "translateY(50px)";
+        projectSection.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
+    }
+
+    // タイトルのグリッチエフェクト
+    const title = document.querySelector('header h1');
+    setInterval(() => {
+        if (Math.random() > 0.98) {
+            title.style.textShadow = '2px 2px 0 #0099cc, -2px -2px 0 #0099cc';
+            setTimeout(() => {
+                title.style.textShadow = '3px 3px 0 #0099cc, 6px 6px 0 rgba(0,0,0,0.3)';
+            }, 120);
         }
+    }, 800);
+
+    // プロジェクトカードのホバーエフェクト
+    document.querySelectorAll(".project-card").forEach(card => {
+        card.addEventListener("mouseover", function() {
+            this.style.transform = "scale(1.05)";
+            this.style.boxShadow = "0 10px 20px rgba(0, 153, 204, 0.3)";
+        });
+        card.addEventListener("mouseout", function() {
+            this.style.transform = "scale(1)";
+            this.style.boxShadow = "0 6px 12px rgba(0,0,0,0.2)";
+        });
     });
-    projectSection.style.opacity = "0";
-    projectSection.style.transform = "translateY(50px)";
-    projectSection.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
+
+    // フッターボタンのクリックエフェクト
+    const contactButton = document.querySelector(".retro-btn");
+    if (contactButton) {
+        contactButton.addEventListener("mousedown", function() {
+            this.style.transform = "scale(0.95)";
+        });
+        contactButton.addEventListener("mouseup", function() {
+            this.style.transform = "scale(1)";
+        });
+    }
 });
