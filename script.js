@@ -29,42 +29,31 @@ document.addEventListener("DOMContentLoaded", function () {
     
     let darkMode = true;
     themeToggle.addEventListener('click', () => {
-        if (darkMode) {
-            document.body.style.backgroundColor = "#ffffff";
-            document.body.style.color = "#000000";
-        } else {
-            document.body.style.backgroundColor = "#0d1117";
-            document.body.style.color = "#c9d1d9";
-        }
+        document.body.classList.toggle('light-mode'); if(document.body.classList.contains('light-mode')) { document.body.style.backgroundColor = '#ffffff'; document.body.style.color = '#000000'; } else { document.body.style.backgroundColor = '#0d1117'; document.body.style.color = '#c9d1d9'; }
         darkMode = !darkMode;
     });
 
     // プロジェクトセクションのフェードインアニメーション
-    const projectSection = document.getElementById("projects");
-    if (projectSection) {
+    const projectsGrid = document.querySelector(".projects-grid") || document.createElement("div")
+    if (projectsGrid) {
         window.addEventListener("scroll", function () {
-            const sectionPos = projectSection.getBoundingClientRect().top;
+            const sectionPos = projectsGrid.getBoundingClientRect().top;
             const screenPos = window.innerHeight / 1.5;
             if (sectionPos < screenPos) {
-                projectSection.style.opacity = "1";
-                projectSection.style.transform = "translateY(0)";
+                projectsGrid.style.opacity = "1";
+                projectsGrid.style.transform = "translateY(0)";
             }
         });
-        projectSection.style.opacity = "0";
-        projectSection.style.transform = "translateY(50px)";
-        projectSection.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
+        projectsGrid.style.opacity = "0";
+        projectsGrid.style.transform = "translateY(50px)";
+        projectsGrid.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
     }
 
     // タイトルのグリッチエフェクト
     const title = document.querySelector('header h1');
-    setInterval(() => {
-        if (Math.random() > 0.98) {
-            title.style.textShadow = '2px 2px 0 #0099cc, -2px -2px 0 #0099cc';
-            setTimeout(() => {
-                title.style.textShadow = '3px 3px 0 #0099cc, 6px 6px 0 rgba(0,0,0,0.3)';
-            }, 120);
-        }
-    }, 800);
+    if (title) {
+        setInterval(() => { if (Math.random() > 0.98) { title.style.textShadow = '2px 2px 0 #0099cc, -2px -2px 0 #0099cc'; setTimeout(() => { title.style.textShadow = '3px 3px 0 #0099cc, 6px 6px 0 rgba(0,0,0,0.3)'; }, 200); } }, 1500);
+    }
 
     // プロジェクトカードのホバーエフェクト
     document.querySelectorAll(".project-card").forEach(card => {
