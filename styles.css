@@ -55,7 +55,7 @@ nav a {
 
 nav a:hover {
     background: var(--accent-color);
-    color: #0d1117;
+    color: var(--text-color);
     box-shadow: 0 0 10px var(--accent-color);
 }
 
