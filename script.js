@@ -1,124 +1,91 @@
-/* スタイリッシュでAIっぽいデザインのCSS */
-@font-face {
-    font-family: 'PixelMplus';
-    src: url('fonts/PixelMplus12-Regular.ttf') format('truetype');
-    font-display: swap;
-}
+document.addEventListener("DOMContentLoaded", function () {
+    // スムーズスクロール
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 50,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
-body {
-    font-family: 'PixelMplus', sans-serif;
-    background-color: #0d1117;
-    color: #c9d1d9;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-image: radial-gradient(circle, #141a24 0%, #0d1117 100%);
-}
+    // ダーク/ライトテーマの切り替え
+    const themeToggle = document.createElement('button');
+    themeToggle.innerText = "テーマ切替";
+    themeToggle.style.position = "fixed";
+    themeToggle.style.top = "10px";
+    themeToggle.style.right = "10px";
+    themeToggle.style.padding = "10px";
+    themeToggle.style.background = "#58a6ff";
+    themeToggle.style.color = "#fff";
+    themeToggle.style.border = "none";
+    themeToggle.style.cursor = "pointer";
+    document.body.appendChild(themeToggle);
+    
+    let darkMode = true;
+    themeToggle.addEventListener('click', () => {
+        if (darkMode) {
+            document.body.style.backgroundColor = "#ffffff";
+            document.body.style.color = "#000000";
+        } else {
+            document.body.style.backgroundColor = "#0d1117";
+            document.body.style.color = "#c9d1d9";
+        }
+        darkMode = !darkMode;
+    });
 
-/* ヘッダー */
-header {
-    background: linear-gradient(to right, #141a24, #1b2635, #141a24);
-    color: #fff;
-    padding: 3rem 0 2rem;
-    border-bottom: 3px solid #00ffcc;
-    box-shadow: 0px 4px 10px rgba(0, 255, 204, 0.2);
-    text-transform: uppercase;
-}
+    // プロジェクトセクションのフェードインアニメーション
+    const projectSection = document.getElementById("projects");
+    if (projectSection) {
+        window.addEventListener("scroll", function () {
+            const sectionPos = projectSection.getBoundingClientRect().top;
+            const screenPos = window.innerHeight / 1.5;
+            if (sectionPos < screenPos) {
+                projectSection.style.opacity = "1";
+                projectSection.style.transform = "translateY(0)";
+            }
+        });
+        projectSection.style.opacity = "0";
+        projectSection.style.transform = "translateY(50px)";
+        projectSection.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
+    }
 
-header h1 {
-    font-size: 3rem;
-    text-shadow: 0 0 15px #00ffcc;
-    letter-spacing: 2px;
-}
+    // タイトルのグリッチエフェクト
+    const title = document.querySelector('header h1');
+    setInterval(() => {
+        if (Math.random() > 0.98) {
+            title.style.textShadow = '2px 2px 0 #0099cc, -2px -2px 0 #0099cc';
+            setTimeout(() => {
+                title.style.textShadow = '3px 3px 0 #0099cc, 6px 6px 0 rgba(0,0,0,0.3)';
+            }, 120);
+        }
+    }, 800);
 
-/* ナビゲーション */
-nav {
-    background: #1b2635;
-    padding: 0.6rem 0;
-    box-shadow: 0 4px 10px rgba(0, 255, 204, 0.15);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
+    // プロジェクトカードのホバーエフェクト
+    document.querySelectorAll(".project-card").forEach(card => {
+        card.addEventListener("mouseover", function() {
+            this.style.transform = "scale(1.05)";
+            this.style.boxShadow = "0 10px 20px rgba(0, 153, 204, 0.3)";
+        });
+        card.addEventListener("mouseout", function() {
+            this.style.transform = "scale(1)";
+            this.style.boxShadow = "0 6px 12px rgba(0,0,0,0.2)";
+        });
+    });
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    gap: 20px;
-}
-
-nav a {
-    color: #c9d1d9;
-    text-decoration: none;
-    font-size: 1.1rem;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-}
-
-nav a:hover {
-    background: #00ffcc;
-    color: #0d1117;
-    box-shadow: 0 0 10px #00ffcc;
-}
-
-/* プロジェクトカード */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-}
-
-.project-card {
-    background: linear-gradient(to bottom, #1b2635, #141a24);
-    border: 1px solid #00ffcc;
-    border-radius: 10px;
-    padding: 1.5rem;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 6px 15px rgba(0, 255, 204, 0.15);
-    text-align: left;
-}
-
-.project-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(0, 255, 204, 0.3);
-}
-
-.project-title {
-    font-size: 1.4rem;
-    color: #00ffcc;
-}
-
-.project-description {
-    font-size: 1rem;
-    color: #c9d1d9;
-    margin: 10px 0;
-}
-
-.project-footer a {
-    display: inline-block;
-    padding: 10px 15px;
-    background: #00ffcc;
-    color: #0d1117;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-}
-
-.project-footer a:hover {
-    background: #0099aa;
-    box-shadow: 0 0 10px #00ffcc;
-}
-
-/* フッター */
-footer {
-    background: #1b2635;
-    color: #00ffcc;
-    padding: 2rem 0;
-    margin-top: 2rem;
-    border-top: 3px solid #00ffcc;
-    box-shadow: 0px -4px 10px rgba(0, 255, 204, 0.2);
-}
+    // フッターボタンのクリックエフェクト
+    const contactButton = document.querySelector(".retro-btn");
+    if (contactButton) {
+        contactButton.addEventListener("mousedown", function() {
+            this.style.transform = "scale(0.95)";
+        });
+        contactButton.addEventListener("mouseup", function() {
+            this.style.transform = "scale(1)";
+        });
+    }
+});
