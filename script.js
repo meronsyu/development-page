@@ -31,6 +31,13 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.toggle('light-mode');
     });
 
+    // プロジェクトセクションを最初から表示
+    const projectsGrid = document.querySelector(".projects-grid");
+    if (projectsGrid) {
+        projectsGrid.style.opacity = "1";
+        projectsGrid.style.transform = "translateY(0)";
+    }
+
     // タイトルのグリッチエフェクト
     const title = document.querySelector('header h1');
     if (title) {
