@@ -3,47 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポートフォリオ</title>
+    <title>Development Page</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
+    <div class="pixel-animation"></div>
+    
     <header>
-        <h1>ポートフォリオ</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">自己紹介</a></li>
-                <li><a href="#skills">スキル</a></li>
-                <li><a href="#projects">作品</a></li>
-                <li><a href="#contact">お問い合わせ</a></li>
-            </ul>
-        </nav>
+        <h1>Development Page</h1>
+        <p>Programming</p>
     </header>
-
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="blog.html">ブログ</a></li>
+            <li><a href="projects.html">プロジェクト</a></li>
+            <li><a href="portfolio.html">ポートフォリオ</a></li>
+            <li><a href="tech-notes.html">技術メモ</a></li>
+            <li><a href="about.html">プロフィール</a></li>
+        </ul>
+    </nav>
+    
     <main>
-        <section id="about">
-            <h2>自己紹介</h2>
-            <p>#</p>
-        </section>
+        <section class="content-section">
+            <h2>GitHubプロジェクト</h2>
+            <p>これらは私が取り組んでいるオープンソースプロジェクトです。興味のあるプロジェクトがあれば、GitHubリポジトリを訪問して詳細をご確認ください。</p>
+            
+            <div class="projects-grid">
+                <!-- プロジェクトカードの例 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="icon-repo"></span>
+                        <h3 class="project-title">seccamp-submission</h3>
+                        <span class="project-badge public">Public</span>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">データ汚染についての危険性の実験</p>
+                        <div class="project-meta">
+                            <div class="project-language">
+                                <span class="language-dot cpp"></span>
+                                C++
+                            </div>
+                            <div class="project-stars">
+                                <span class="icon-star"></span>
+                                10
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/meronsyu/seccamp-submission" class="project-link">リポジトリを見る</a>
+                        <span class="status-indicator status-active">Active</span>
+                    </div>
+                </div>
 
-        <section id="skills">
-            <h2>スキル</h2>
-            <p>#</p>
-        </section>
-
-        <section id="projects">
-            <h2>作品紹介</h2>
-            <p>作成したプロジェクトを紹介。</p>
-        </section>
-
-        <section id="contact">
-            <h2>お問い合わせ</h2>
-            <p>#</p>
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="icon-repo"></span>
+                        <h3 class="project-title">vuln_sent_ai</h3>
+                        <span class="project-badge public">Public</span>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">感情によるデータの脆弱性</p>
+                        <div class="project-meta">
+                            <div class="project-language">
+                                <span class="language-dot cpp"></span>
+                                C++
+                            </div>
+                            <div class="project-stars">
+                                <span class="icon-star"></span>
+                                10
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/meronsyu/vuln_sent_ai" class="project-link">リポジトリを見る</a>
+                        <span class="status-indicator status-active">Active</span>
+                    </div>
+                </div>
+                
+            </div>
         </section>
     </main>
-
+    
     <footer>
-        <p>&copy; 2025 村上広樹</p>
-    </footer>
+        <p class="glow-text">&copy; 2025 My Digital Space. All Rights Reserved.</p>
+        <button class="retro-btn" onclick="location.href='contact.html'">CONTACT ME</button>
+    </footer>   
+    
+    <script>
+        // タイトルのグリッチエフェクト
+        const title = document.querySelector('header h1');
+        setInterval(() => {
+            if (Math.random() > 0.98) {
+                title.style.textShadow = '2px 2px 0 #0099cc, -2px -2px 0 #0099cc';
+                setTimeout(() => {
+                    title.style.textShadow = '3px 3px 0 #0099cc, 6px 6px 0 rgba(0,0,0,0.3)';
+                }, 120);
+            }
+        }, 800);
+    </script>
 </body>
 </html>
