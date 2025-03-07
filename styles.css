@@ -1,87 +1,120 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // スムーズスクロール
-    document.querySelectorAll('nav ul li a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 50,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+/* スタイリッシュなAI風デザインのCSS */
+:root {
+    --background-color: #0d1117;
+    --text-color: #c9d1d9;
+    --card-bg: #1b2635;
+    --card-text: #c9d1d9;
+    --accent-color: #00ffcc;
+    --hover-bg: #0099aa;
+}
 
-    // ダーク/ライトテーマの切り替え
-    const themeToggle = document.createElement('button');
-    themeToggle.innerText = "テーマ切替";
-    themeToggle.style.position = "fixed";
-    themeToggle.style.top = "10px";
-    themeToggle.style.right = "10px";
-    themeToggle.style.padding = "10px";
-    themeToggle.style.background = "#58a6ff";
-    themeToggle.style.color = "#fff";
-    themeToggle.style.border = "none";
-    themeToggle.style.cursor = "pointer";
-    document.body.appendChild(themeToggle);
-    
-    let darkMode = true;
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode');
-        darkMode = !darkMode;
-    });
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: background-color 0.5s, color 0.5s;
+}
 
-    // プロジェクトセクションのフェードインアニメーション
-    const projectsGrid = document.querySelector(".projects-grid");
-    if (projectsGrid) {
-        window.addEventListener("scroll", function () {
-            const sectionPos = projectsGrid.getBoundingClientRect().top;
-            const screenPos = window.innerHeight / 1.5;
-            if (sectionPos < screenPos) {
-                projectsGrid.style.opacity = "1";
-                projectsGrid.style.transform = "translateY(0)";
-            }
-        });
-        projectsGrid.style.opacity = "0";
-        projectsGrid.style.transform = "translateY(50px)";
-        projectsGrid.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
-    }
+/* ヘッダー */
+header {
+    background: linear-gradient(to right, #141a24, #1b2635, #141a24);
+    color: #fff;
+    padding: 3rem 0 2rem;
+    border-bottom: 3px solid var(--accent-color);
+    text-shadow: 0 0 15px var(--accent-color);
+}
 
-    // タイトルのグリッチエフェクト
-    const title = document.querySelector('header h1');
-    if (title) {
-        setInterval(() => {
-            if (Math.random() > 0.98) {
-                title.style.textShadow = '2px 2px 0 #0099cc, -2px -2px 0 #0099cc';
-                setTimeout(() => {
-                    title.style.textShadow = '3px 3px 0 #0099cc, 6px 6px 0 rgba(0,0,0,0.3)';
-                }, 120);
-            }
-        }, 800);
-    }
+/* ナビゲーション */
+nav {
+    background: #1b2635;
+    padding: 0.6rem 0;
+    box-shadow: 0 4px 10px rgba(0, 255, 204, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
-    // プロジェクトカードのホバーエフェクト
-    document.querySelectorAll(".project-card").forEach(card => {
-        card.addEventListener("mouseover", function() {
-            this.style.transform = "scale(1.05)";
-            this.style.boxShadow = "0 10px 20px rgba(0, 153, 204, 0.3)";
-        });
-        card.addEventListener("mouseout", function() {
-            this.style.transform = "scale(1)";
-            this.style.boxShadow = "0 6px 12px rgba(0,0,0,0.2)";
-        });
-    });
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    gap: 20px;
+}
 
-    // フッターボタンのクリックエフェクト
-    const contactButton = document.querySelector(".retro-btn");
-    if (contactButton) {
-        contactButton.addEventListener("mousedown", function() {
-            this.style.transform = "scale(0.95)";
-        });
-        contactButton.addEventListener("mouseup", function() {
-            this.style.transform = "scale(1)";
-        });
-    }
-});
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+    background: var(--accent-color);
+    color: #0d1117;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* プロジェクトカード */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.project-card {
+    background: var(--card-bg);
+    color: var(--card-text);
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 255, 204, 0.15);
+    text-align: left;
+}
+
+.project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 255, 204, 0.3);
+}
+
+.project-footer a {
+    display: inline-block;
+    padding: 10px 15px;
+    background: var(--accent-color);
+    color: #0d1117;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.project-footer a:hover {
+    background: var(--hover-bg);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* フッター */
+footer {
+    background: #1b2635;
+    color: var(--accent-color);
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-top: 3px solid var(--accent-color);
+    box-shadow: 0px -4px 10px rgba(0, 255, 204, 0.2);
+}
+
+/* ライトモード用スタイル */
+.light-mode {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --card-bg: #f0f0f0;
+    --card-text: #000000;
+    --accent-color: #007acc;
+    --hover-bg: #005f99;
+}
