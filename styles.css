@@ -5,163 +5,185 @@ body {
     padding: 0;
     background-color: #fff;
     color: #333;
+    display: flex;
+}
+
+/* 左側の黄色のバー */
+#left-yellow-bar {
+    width: 80px;
+    height: 100vh;
+    background-color: #FFD700;
+    position: fixed;
+    left: 0;
+    top: 0;
 }
 
 /* ナビゲーションバー */
 #topbar {
-    background-color: #222;
-    color: #FFD700;
+    background-color: #FFD700;
+    color: #222;
     padding: 15px 0;
     text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
     z-index: 1000;
 }
 
-#topbar ul {
+.topbar-left ul {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: center;
     gap: 20px;
 }
 
-#topbar ul li {
+.topbar-left ul li {
     display: inline;
 }
 
-#topbar ul li a {
-    color: #FFD700;
+.topbar-left ul li a {
+    color: #222;
     text-decoration: none;
     padding: 10px 15px;
     border-radius: 5px;
     transition: 0.3s;
 }
 
-#topbar ul li a:hover {
-    background-color: #FFD700;
-    color: #222;
+.topbar-right {
+    display: flex;
+    gap: 10px;
+}
+
+.round-button {
+    background-color: #fff;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 /* メインコンテンツ */
 main {
-    margin-top: 70px;
+    margin-left: 100px;
     padding: 20px;
+    flex: 1;
 }
 
-.hero {
-    background: url('hero-image.jpg') center/cover;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #222;
-    flex-direction: column;
-}
-
-.hero .btn {
-    background-color: #FFD700;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #222;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.hero .btn:hover {
-    background-color: #222;
-    color: #FFD700;
-}
-
-/* カードデザイン（ポートフォリオとブログ共通） */
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.card {
+/* 大きいカード */
+.large-card {
     background-color: #fff;
+    padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    text-align: center;
-    width: 320px;
-    transition: transform 0.3s ease-in-out;
-    border: 3px solid #FFD700;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card img {
-    width: 100%;
-    border-radius: 10px;
-    height: 180px;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    font-size: 20px;
-    color: #222;
-    margin-bottom: 10px;
-}
-
-.card p {
-    font-size: 14px;
-    color: #555;
-}
-
-.card a {
-    display: block;
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #FFD700;
-    color: #222;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.card a:hover {
-    background-color: #222;
-    color: #FFD700;
-}
-
-/* フォームデザイン */
-form {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 400px;
-    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    border: 3px solid #ddd;
 }
 
-input, textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
+.large-card::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
 }
 
-button {
-    background-color: #FFD700;
-    color: #222;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: 0.3s;
+.large-card::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    width: 12px;
+    height: 12px;
+    background-color: green;
+    border-radius: 50%;
 }
 
-button:hover {
+.large-card img {
+    width: 40%;
+    border-radius: 10px;
+}
+
+/* 中くらいのカード */
+.middle-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    border: 3px solid #ddd;
+}
+
+.middle-card::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.middle-card::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    width: 12px;
+    height: 12px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+.middle-card img {
+    width: 80%;
+    border-radius: 10px;
+}
+
+/* 小さいカード */
+.small-card {
     background-color: #222;
-    color: #FFD700;
+    color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    border: 3px solid #333;
+}
+
+.small-card::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.small-card::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    width: 12px;
+    height: 12px;
+    background-color: green;
+    border-radius: 50%;
 }
