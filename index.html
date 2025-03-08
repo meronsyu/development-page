@@ -12,11 +12,11 @@
     <nav id="topbar">
         <div class="topbar-left">
             <ul>
-                <li><a href="#home">🏠 ホーム</a></li>
-                <li><a href="#profile">👤 プロフィール</a></li>
-                <li><a href="#portfolio">💼 ポートフォリオ</a></li>
-                <li><a href="#blog">✍️ ブログ</a></li>
-                <li><a href="#contact">📩 お問い合わせ</a></li>
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#profile">プロフィール</a></li>
+                <li><a href="#portfolio">ポートフォリオ</a></li>
+                <li><a href="#blog">✍ブログ</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
             </ul>
         </div>
         <div class="topbar-right">
@@ -32,44 +32,49 @@
     <main id="content">
         <section id="large-card-section">
             <div class="large-card">
-                <img src="left-image.jpg" alt="左画像">
-                <div>
-                    <h2>メインプロジェクト</h2>
-                    <p>ここに最も重要なプロジェクト情報を表示</p>
-                    <a href="#">詳細を見る</a>
+                <img src="left-image.jpg" alt="左画像" class="card-image">
+                <div class="card-content">
+                    <h2>Home Page</h2>
+                    <p>Skills & Work Experience</p>
+                    <p>Portfolio</p>
+                    <div class="button-container">
+                        <a href="skills.html" class="yellow-button">Skills</a>
+                        <a href="blog.html" class="black-button">Blog</a>
+                    </div>
                 </div>
-                <img src="right-image.jpg" alt="右画像">
+                <img src="right-image.jpg" alt="右画像" class="card-image">
             </div>
+        </section>
         </section>
 
         <section id="middle-card-section">
             <div class="middle-card">
-                <img src="featured.jpg" alt="注目のプロジェクト">
-                <h3>注目のプロジェクト</h3>
-                <p>最新のプロジェクト情報</p>
-                <a href="#">詳細を見る</a>
+                <a href="featured.html">
+                    <img src="featured.jpg" alt="注目のプロジェクト">
+                    <h3>注目のプロジェクト</h3>
+                </a>
             </div>
         </section>
         
         <section id="small-card-section" class="card-container">
             <div class="small-card">
-                <img src="project1.jpg" alt="プロジェクト1">
-                <h3>プロジェクト1</h3>
-                <p>説明文...</p>
-                <a href="project1.html">詳細を見る</a>
+                <a href="project1.html">
+                    <img src="project1.jpg" alt="プロジェクト1">
+                </a>
             </div>
             <div class="small-card">
-                <img src="project2.jpg" alt="プロジェクト2">
-                <h3>プロジェクト2</h3>
-                <p>説明文...</p>
-                <a href="project2.html">詳細を見る</a>
+                <a href="project2.html">
+                    <img src="project2.jpg" alt="プロジェクト2">
+                </a>
             </div>
             <div class="small-card">
-                <img src="project3.jpg" alt="プロジェクト3">
-                <h3>プロジェクト3</h3>
-                <p>説明文...</p>
-                <a href="project3.html">詳細を見る</a>
+                <a href="project3.html">
+                    <img src="project3.jpg" alt="プロジェクト3">
+                </a>
             </div>
+        </section>
+        
+        
         </section>
     </main>
 </body>
