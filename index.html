@@ -4,92 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ポートフォリオ</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="portfolio_revised.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
     <!-- 上部ナビゲーションバー -->
     <nav id="topbar">
-        <ul>
-            <li><a href="#home">🏠 ホーム</a></li>
-            <li><a href="#profile">👤 プロフィール</a></li>
-            <li><a href="#portfolio">💼 ポートフォリオ</a></li>
-            <li><a href="#blog">✍️ ブログ</a></li>
-            <li><a href="#contact">📩 お問い合わせ</a></li>
-        </ul>
+        <div class="topbar-left">
+            <ul>
+                <li><a href="#home">🏠 ホーム</a></li>
+                <li><a href="#profile">👤 プロフィール</a></li>
+                <li><a href="#portfolio">💼 ポートフォリオ</a></li>
+                <li><a href="#blog">✍️ ブログ</a></li>
+                <li><a href="#contact">📩 お問い合わせ</a></li>
+            </ul>
+        </div>
+        <div class="topbar-right">
+            <button class="round-button">🔗</button>
+            <button class="round-button">⚙️</button>
+        </div>
     </nav>
+    
+    <!-- 左側の黄色背景 -->
+    <div id="left-yellow-bar"></div>
     
     <!-- メインコンテンツ -->
     <main id="content">
-        <header class="hero">
-            <div class="hero-text">
-                <h1>Welcome to My Portfolio</h1>
-                <p>AIと猫が大好きな開発者の世界へようこそ！</p>
-                <a href="#portfolio" class="btn">ポートフォリオを見る</a>
+        <section id="large-card-section">
+            <div class="large-card">
+                <img src="left-image.jpg" alt="左画像">
+                <div>
+                    <h2>メインプロジェクト</h2>
+                    <p>ここに最も重要なプロジェクト情報を表示</p>
+                    <a href="#">詳細を見る</a>
+                </div>
+                <img src="right-image.jpg" alt="右画像">
             </div>
-        </header>
+        </section>
 
-        <section id="profile" class="section">
-            <h2>プロフィール</h2>
-            <div class="card-container">
-                <div class="card">
-                    <h3>プロフィール情報</h3>
-                    <p>技術スタック、経歴、自己紹介</p>
-                </div>
+        <section id="middle-card-section">
+            <div class="middle-card">
+                <img src="featured.jpg" alt="注目のプロジェクト">
+                <h3>注目のプロジェクト</h3>
+                <p>最新のプロジェクト情報</p>
+                <a href="#">詳細を見る</a>
             </div>
         </section>
         
-        <section id="portfolio" class="section">
-            <h2>ポートフォリオ</h2>
-            <div class="card-container">
-                <div class="card">
-                    <img src="project1.jpg" alt="プロジェクト1">
-                    <h3>プロジェクト1</h3>
-                    <p>説明文...</p>
-                    <a href="project1.html">詳細を見る</a>
-                </div>
-                <div class="card">
-                    <img src="project2.jpg" alt="プロジェクト2">
-                    <h3>プロジェクト2</h3>
-                    <p>説明文...</p>
-                    <a href="project2.html">詳細を見る</a>
-                </div>
+        <section id="small-card-section" class="card-container">
+            <div class="small-card">
+                <img src="project1.jpg" alt="プロジェクト1">
+                <h3>プロジェクト1</h3>
+                <p>説明文...</p>
+                <a href="project1.html">詳細を見る</a>
             </div>
-        </section>
-        
-        <section id="blog" class="section">
-            <h2>ブログ</h2>
-            <div class="card-container">
-                <div class="card">
-                    <h3>記事タイトル1</h3>
-                    <p>記事概要...</p>
-                    <a href="blog1.html">続きを読む</a>
-                </div>
-                <div class="card">
-                    <h3>記事タイトル2</h3>
-                    <p>記事概要...</p>
-                    <a href="blog2.html">続きを読む</a>
-                </div>
+            <div class="small-card">
+                <img src="project2.jpg" alt="プロジェクト2">
+                <h3>プロジェクト2</h3>
+                <p>説明文...</p>
+                <a href="project2.html">詳細を見る</a>
             </div>
-        </section>
-        
-        <section id="contact" class="section">
-            <h2>お問い合わせ</h2>
-            <div class="card-container">
-                <div class="card">
-                    <form>
-                        <label for="name">お名前:</label>
-                        <input type="text" id="name" name="name" required>
-                        
-                        <label for="email">メールアドレス:</label>
-                        <input type="email" id="email" name="email" required>
-                        
-                        <label for="message">メッセージ:</label>
-                        <textarea id="message" name="message" required></textarea>
-                        
-                        <button type="submit">送信 🐱</button>
-                    </form>
-                </div>
+            <div class="small-card">
+                <img src="project3.jpg" alt="プロジェクト3">
+                <h3>プロジェクト3</h3>
+                <p>説明文...</p>
+                <a href="project3.html">詳細を見る</a>
             </div>
         </section>
     </main>
