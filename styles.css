@@ -41,7 +41,7 @@ main {
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; /* 3列 */
-    grid-template-rows: auto auto; /* 2行 */
+    grid-template-rows: auto auto auto; /* 3行 */
     grid-template-areas:
         "large large large"
         "middle small1 small2"
@@ -64,7 +64,7 @@ main {
     border: 3px solid #ddd;
 }
 
-/* 中くらいのカード（2列目と3列目） */
+/* 中くらいのカード */
 .middle-card {
     background-color: #fff;
     padding: 10px;
@@ -75,15 +75,15 @@ main {
     border: 3px solid #ddd;
 }
 
-.middle-card:nth-child(1) {
+.middle-card:nth-of-type(1) {
     grid-area: middle;
 }
 
-.middle-card:nth-child(2) {
+.middle-card:nth-of-type(2) {
     grid-area: middle2;
 }
 
-/* 小さいカード（2列目と3列目） */
+/* 小さいカード */
 .small-card {
     background-color: #222;
     padding: 10px;
@@ -94,48 +94,18 @@ main {
     border: 3px solid #333;
 }
 
-.small-card:nth-child(1) {
+.small-card:nth-of-type(1) {
     grid-area: small1;
 }
 
-.small-card:nth-child(2) {
+.small-card:nth-of-type(2) {
     grid-area: small2;
 }
 
-.small-card:nth-child(3) {
+.small-card:nth-of-type(3) {
     grid-area: small3;
 }
 
-.small-card:nth-child(4) {
+.small-card:nth-of-type(4) {
     grid-area: small4;
-}
-
-/* 赤と緑の○を右上に配置 */
-.card::before {
-    content: "";
-    position: absolute;
-    top: 10px;
-    right: 30px;
-    width: 12px;
-    height: 12px;
-    background-color: red;
-    border-radius: 50%;
-}
-
-.card::after {
-    content: "";
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 12px;
-    height: 12px;
-    background-color: green;
-    border-radius: 50%;
-}
-
-/* クリック時の遷移を適用 */
-.card a {
-    display: inline-block;
-    text-decoration: none;
-    color: inherit;
 }
