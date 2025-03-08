@@ -34,20 +34,25 @@ body {
     z-index: 1000;
 }
 
-/* メインコンテンツレイアウト */
+/* 3列レイアウトの明示的な指定 */
 main {
     margin-top: 120px;
     margin-left: 100px;
     padding: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr; /* 3列 */
+    grid-template-rows: auto auto; /* 2行 */
+    grid-template-areas:
+        "large large large"
+        "middle small1 small2"
+        "small3 small4 middle2";
     gap: 20px;
     justify-content: center;
 }
 
-/* 大きいカード（1列目全体） */
+/* メインコンテンツ（1列目全体を占める） */
 .large-card {
-    grid-column: 1 / 2;
+    grid-area: large;
     background-color: #fff;
     padding: 20px;
     border-radius: 15px;
@@ -67,11 +72,18 @@ main {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
     width: 100%;
-    grid-column: span 2;
     border: 3px solid #ddd;
 }
 
-/* 小さいカード（2列目と3列目に配置） */
+.middle-card:nth-child(1) {
+    grid-area: middle;
+}
+
+.middle-card:nth-child(2) {
+    grid-area: middle2;
+}
+
+/* 小さいカード（2列目と3列目） */
 .small-card {
     background-color: #222;
     padding: 10px;
@@ -79,16 +91,23 @@ main {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
     width: 100%;
-    grid-column: span 1;
     border: 3px solid #333;
 }
 
-/* 画像のスタイル */
-.large-card img,
-.middle-card img,
-.small-card img {
-    width: 100%;
-    border-radius: 10px;
+.small-card:nth-child(1) {
+    grid-area: small1;
+}
+
+.small-card:nth-child(2) {
+    grid-area: small2;
+}
+
+.small-card:nth-child(3) {
+    grid-area: small3;
+}
+
+.small-card:nth-child(4) {
+    grid-area: small4;
 }
 
 /* 赤と緑の○を右上に配置 */
