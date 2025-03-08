@@ -3,89 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Development Page</title>
+    <title>ポートフォリオ</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="pixel-animation"></div>
-    
-    <header>
-        <h1>Development Page</h1>
-        <p>制作物を載せています</p>
-    </header>
-    
-    <nav>
+    <!-- サイドバーナビゲーション -->
+    <nav id="sidebar">
+        <h2>🐱 My Portfolio</h2>
         <ul>
-            <li><a href="index.html">ホーム</a></li>
-            <li><a href="projects.html">プロジェクト</a></li>
-            <li><a href="portfolio.html">ポートフォリオ</a></li>
-            <li><a href="tech-notes.html">技術メモ</a></li>
-            <li><a href="about.html">プロフィール</a></li>
+            <li><a href="#home">🏠 ホーム</a></li>
+            <li><a href="#profile">👤 プロフィール</a></li>
+            <li><a href="#portfolio">💼 ポートフォリオ</a></li>
+            <li><a href="#blog">✍️ ブログ</a></li>
+            <li><a href="#contact">📩 お問い合わせ</a></li>
         </ul>
     </nav>
     
-    <main>
-        <section class="content-section">
-            <h2>GitHubプロジェクト</h2>
-            <p>これらは私が取り組んでいるプロジェクトです。興味のあるプロジェクトがあれば、GitHubリポジトリを訪問して詳細をご確認ください。</p>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="icon-repo"></span>
-                        <h3 class="project-title">seccamp-submission</h3>
-                        <span class="project-badge public">Public</span>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">データ汚染についての危険性の実験</p>
-                        <div class="project-meta">
-                            <div class="project-language">
-                                <span class="language-dot cpp"></span>
-                                Python
-                            </div>
-                            <div class="project-stars">
-                                <span class="icon-star"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-footer">
-                        <a href="https://github.com/meronsyu/seccamp-submission" class="project-link">リポジトリを見る</a>
-                        <span class="status-indicator status-active">Active</span>
-                    </div>
+    <!-- メインコンテンツ -->
+    <main id="content">
+        <section id="home" class="section">
+            <h1>こんにちは！</h1>
+            <p>AIと猫が大好きな開発者のポートフォリオへようこそ！</p>
+        </section>
+        
+        <section id="profile" class="section">
+            <h2>プロフィール</h2>
+            <p>技術スタック、経歴、自己紹介</p>
+        </section>
+        
+        <section id="portfolio" class="section">
+            <h2>ポートフォリオ</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="project1.jpg" alt="プロジェクト1">
+                    <h3>プロジェクト1</h3>
+                    <p>説明文...</p>
+                    <a href="#">詳細を見る</a>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="icon-repo"></span>
-                        <h3 class="project-title">vuln_sent_ai</h3>
-                        <span class="project-badge public">Public</span>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">感情によるデータの脆弱性</p>
-                        <div class="project-meta">
-                            <div class="project-language">
-                                <span class="language-dot cpp"></span>
-                                Python
-                            </div>
-                            <div class="project-stars">
-                                <span class="icon-star"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-footer">
-                        <a href="https://github.com/meronsyu/vuln_sent_ai" class="project-link">リポジトリを見る</a>
-                        <span class="status-indicator status-active">Active</span>
-                    </div>
+                <div class="card">
+                    <img src="project2.jpg" alt="プロジェクト2">
+                    <h3>プロジェクト2</h3>
+                    <p>説明文...</p>
+                    <a href="#">詳細を見る</a>
                 </div>
-                
             </div>
         </section>
+        
+        <section id="blog" class="section">
+            <h2>ブログ</h2>
+            <p>技術記事の一覧</p>
+        </section>
+        
+        <section id="contact" class="section">
+            <h2>お問い合わせ</h2>
+            <form>
+                <label for="name">お名前:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">メールアドレス:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">メッセージ:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">送信 🐱</button>
+            </form>
+        </section>
     </main>
-    
-    <footer>
-        <p class="glow-text">&copy; 2025 Development Page. All Rights Reserved.</p>
-        <button class="retro-btn" onclick="location.href='contact.html'">CONTACT ME</button>
-    </footer>   
 </body>
 </html>
