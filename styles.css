@@ -23,6 +23,7 @@ body {
 
 #sidebar h2 {
     color: #FFD700;
+    font-size: 24px;
 }
 
 #sidebar ul {
@@ -57,9 +58,35 @@ main {
     flex: 1;
 }
 
+.hero {
+    background: url('hero-image.jpg') center/cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #222;
+    flex-direction: column;
+}
+
+.hero .btn {
+    background-color: #FFD700;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #222;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.hero .btn:hover {
+    background-color: #222;
+    color: #FFD700;
+}
+
 .section {
     padding: 50px;
     border-bottom: 1px solid #ddd;
+    text-align: center;
 }
 
 h1, h2, h3 {
@@ -71,6 +98,7 @@ h1, h2, h3 {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {
@@ -114,12 +142,14 @@ form {
     flex-direction: column;
     gap: 10px;
     max-width: 400px;
+    margin: auto;
 }
 
 input, textarea {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    width: 100%;
 }
 
 button {
