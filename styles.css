@@ -1,120 +1,139 @@
-/* スタイリッシュなAI風デザインのCSS */
-:root {
-    --background-color: #0d1117;
-    --text-color: #c9d1d9;
-    --card-bg: #1b2635;
-    --card-text: #c9d1d9;
-    --accent-color: #00ffcc;
-    --hover-bg: #0099aa;
-}
-
+/* 全体のリセット */
 body {
-    background-color: var(--background-color);
-    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center;
-    transition: background-color 0.5s, color 0.5s;
-}
-
-/* ヘッダー */
-header {
-    background: linear-gradient(to right, #141a24, #1b2635, #141a24);
-    color: #fff;
-    padding: 3rem 0 2rem;
-    border-bottom: 3px solid var(--accent-color);
-    text-shadow: 0 0 15px var(--accent-color);
-}
-
-/* ナビゲーション */
-nav {
-    background: #1b2635;
-    padding: 0.6rem 0;
-    box-shadow: 0 4px 10px rgba(0, 255, 204, 0.15);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-nav ul {
-    list-style: none;
     display: flex;
-    justify-content: center;
+    background-color: #fff;
+    color: #333;
+}
+
+/* サイドバーのスタイル */
+#sidebar {
+    width: 250px;
+    background-color: #222;
+    color: #fff;
+    height: 100vh;
+    position: fixed;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sidebar h2 {
+    color: #FFD700;
+}
+
+#sidebar ul {
+    list-style: none;
     padding: 0;
+    width: 100%;
+}
+
+#sidebar ul li {
+    margin: 15px 0;
+    text-align: center;
+}
+
+#sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+#sidebar ul li a:hover {
+    background-color: #FFD700;
+    color: #222;
+    border-radius: 5px;
+}
+
+/* メインコンテンツのスタイル */
+main {
+    margin-left: 250px;
+    padding: 20px;
+    flex: 1;
+}
+
+.section {
+    padding: 50px;
+    border-bottom: 1px solid #ddd;
+}
+
+h1, h2, h3 {
+    color: #222;
+}
+
+/* カードデザイン（ポートフォリオとブログで統一） */
+.card-container {
+    display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
-nav a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 1.1rem;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-}
-
-nav a:hover {
-    background: var(--accent-color);
-    color: inherit;
-    box-shadow: 0 0 10px var(--accent-color);
-}
-
-/* プロジェクトカード */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.project-card {
-    background: var(--card-bg);
-    color: var(--card-text);
-    border: 1px solid var(--accent-color);
+.card {
+    background-color: #fff;
     border-radius: 10px;
-    padding: 1.5rem;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 6px 15px rgba(0, 255, 204, 0.15);
-    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease-in-out;
 }
 
-.project-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(0, 255, 204, 0.3);
+.card:hover {
+    transform: scale(1.05);
 }
 
-.project-footer a {
-    display: inline-block;
-    padding: 10px 15px;
-    background: var(--accent-color);
-    color: #0d1117;
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card a {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #FFD700;
+    color: #222;
     text-decoration: none;
     border-radius: 5px;
-    transition: all 0.3s ease-in-out;
+    font-weight: bold;
 }
 
-.project-footer a:hover {
-    background: var(--hover-bg);
-    box-shadow: 0 0 10px var(--accent-color);
+.card a:hover {
+    background-color: #222;
+    color: #FFD700;
 }
 
-/* フッター */
-footer {
-    background: #1b2635;
-    color: var(--accent-color);
-    padding: 2rem 0;
-    margin-top: 2rem;
-    border-top: 3px solid var(--accent-color);
-    box-shadow: 0px -4px 10px rgba(0, 255, 204, 0.2);
+/* フォームデザイン */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
 }
 
-/* ライトモード用スタイル */
-.light-mode {
-    --background-color: #ffffff;
-    --text-color: #000000;
-    --card-bg: #f0f0f0;
-    --card-text: #000000;
-    --accent-color: #007acc;
-    --hover-bg: #005f99;
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #FFD700;
+    color: #222;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #222;
+    color: #FFD700;
 }
